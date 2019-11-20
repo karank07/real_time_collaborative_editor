@@ -2,7 +2,7 @@ package util;
 
 import javax.swing.SwingWorker;
 
-import client.Client;
+import model.Client;
 
 
 @SuppressWarnings("unused")
@@ -20,7 +20,7 @@ public class UpdateWorker extends SwingWorker<Void, Void>{
 	
 	
 	protected Void doInBackground() {
-		client.sendMessageToServer(message);
+		client.sendCommandToServer(message);
 		done();
 		return null;
 	}
@@ -28,7 +28,7 @@ public class UpdateWorker extends SwingWorker<Void, Void>{
 
 	@Override
 	protected void done() {
-		client.getMainWindow().repaint();
+		client.getMainView().repaint();
 		sent = false;
 		
 	}

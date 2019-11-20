@@ -1,4 +1,4 @@
-package server;
+package model;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
 
-import util.Edit;
-import util.EditHandler;
+import controller.EditHandler;
+import controller.ServerThreadHandler;
 
 
 public class Server {

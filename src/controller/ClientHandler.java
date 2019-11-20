@@ -1,7 +1,7 @@
-package client;
-import gui.MainView;
-
+package controller;
 import javax.swing.SwingUtilities;
+
+import view.MainView;
 
 
 public class ClientHandler {

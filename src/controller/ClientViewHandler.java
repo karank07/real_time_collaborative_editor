@@ -1,6 +1,4 @@
-package client;
-
-import gui.MainView;
+package controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,6 +7,9 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import model.Client;
+import view.MainView;
 
 
 public class ClientViewHandler {
@@ -25,22 +26,22 @@ public class ClientViewHandler {
 	private final int groupChangeText = 11;
 	private final int groupOpenVersion = 5;
 	private final int groupOpenText = 6;
-	private MainView main;
+	private MainView mainView;
 
 
 	public ClientViewHandler(Client client, Socket socket) {
 		this.client = client;
 		this.socket = socket;
-		this.main = client.getMainWindow();
+		this.mainView = client.getMainView();
 	}
     
 	
 	public void run() throws IOException {
 		in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 		try {
-			for (String line = in.readLine(); line != null; line = in
+			for (String input = in.readLine(); input != null; input = in
 					.readLine()) {
-				handleMessageFromServer(line);
+				handleCommandFromServer(input);
 			}
 		}
 
@@ -49,18 +50,18 @@ public class ClientViewHandler {
 		}
 	}
 	
-	public void handleMessageFromServer(String input) {
+	public void handleCommandFromServer(String input) {
 		input = input.trim();
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(input);
 
 		if (!matcher.find()) {
-			main.openErrorView("from CAL: regex failure");
+			mainView.openErrorView("from CAL: regex failure");
 		}
 		String[] tokens = input.split(" ");
 		
 		if (tokens[0].equals("Error:")) {
-			main.openErrorView(input);
+			mainView.openErrorView(input);
 		}
 
 		else if (tokens[0].equals("alldocs")) {
@@ -68,17 +69,17 @@ public class ClientViewHandler {
 			for (int i = 1; i < tokens.length; i++) {
 				names.add(tokens[i]);
 			}
-			main.displayOpenDocuments(names);
+			mainView.displayOpenDocuments(names);
 
 		}
 		else if (tokens[0].equals("name")){
-			client.setUsername(tokens[1]);
+			client.setUserName(tokens[1]);
 			
 			
 		}
 
 		else if (tokens[0].equals("new")) {
-			main.switchToDocumentView(tokens[1], "");
+			mainView.switchToDocumentView(tokens[1], "");
 			client.updateDocumentName(tokens[1]);
 			client.updateVersion(1);
 		}
@@ -87,7 +88,7 @@ public class ClientViewHandler {
 			client.updateVersion(Integer.parseInt(matcher.group(groupOpenVersion)));
 			String documentText = matcher.group(groupOpenText);
 			client.updateText(documentText);
-			main.switchToDocumentView(tokens[1], documentText);
+			mainView.switchToDocumentView(tokens[1], documentText);
 
 			
 
@@ -102,7 +103,7 @@ public class ClientViewHandler {
 				String documentText = matcher.group(groupChangeText);
 				int editPosition = Integer.parseInt(matcher.group(groupChangePosition));
 				int editLength = Integer.parseInt(matcher.group(groupChangeLength));
-				main.updateDocument(documentText, editPosition, editLength, username, version);
+				mainView.updateDocument(documentText, editPosition, editLength, username, version);
 				client.updateText(documentText);
 				client.updateVersion(version);
 

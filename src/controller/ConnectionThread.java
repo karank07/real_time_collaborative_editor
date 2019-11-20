@@ -1,16 +1,16 @@
-package util;
-
-import gui.ConnectView;
+package controller;
 
 import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
+import view.ConnectView;
 
-public class ConnectViewThread extends Thread {
+
+public class ConnectionThread extends Thread {
     private final ConnectView connectView;
 
-	public ConnectViewThread(ConnectView connectView) {
+	public ConnectionThread(ConnectView connectView) {
 		this.connectView=connectView;
 	}
 

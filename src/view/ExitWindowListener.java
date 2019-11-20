@@ -1,9 +1,9 @@
-package gui;
+package view;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-import client.Client;
+import model.Client;
 
 public class ExitWindowListener implements WindowListener {
 	private final Client client;
@@ -24,7 +24,7 @@ public class ExitWindowListener implements WindowListener {
 	public void windowClosing(WindowEvent paramWindowEvent) {
 		
 		if(client != null && !client.getSocket().isClosed()){
-		client.sendMessageToServer("bye");
+		client.sendCommandToServer("bye");
 		System.exit(0);
 		}
 	}

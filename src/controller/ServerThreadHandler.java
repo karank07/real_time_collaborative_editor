@@ -1,4 +1,4 @@
-package server;
+package controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,9 +6,10 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-import util.Edit;
+import model.Edit;
+import model.Server;
+import model.Edit.Type;
 import util.Encoding;
-import util.Edit.Type;
 
 public class ServerThreadHandler extends Thread {
 

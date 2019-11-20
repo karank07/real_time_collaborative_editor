@@ -1,4 +1,4 @@
-package gui;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import client.Client;
+import model.Client;
 
 @SuppressWarnings("unused")
 public class MainView extends JFrame {
@@ -53,7 +53,7 @@ public class MainView extends JFrame {
 					JOptionPane.ERROR_MESSAGE);
 		}
 		else{
-		client.sendMessageToServer("name " + username);
+		client.sendCommandToServer("name " + username);
 		}
 	}
 	
@@ -116,7 +116,7 @@ public class MainView extends JFrame {
 	public void openVersionErrorView(String error) {
 		int n = JOptionPane.showConfirmDialog(null, error, "Error",
 				JOptionPane.ERROR_MESSAGE);
-		client.sendMessageToServer("open " + client.getDocumentName());
+		client.sendCommandToServer("open " + client.getDocumentName());
 	
 	}
 

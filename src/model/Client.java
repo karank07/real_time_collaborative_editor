@@ -1,87 +1,88 @@
-package client;
+package model;
 
-
-import gui.MainView;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import controller.ClientViewHandler;
+import view.MainView;
+
 public class Client {
 
-	private String nameOfDocument;
-	private String textOfDocument;
-	private int versionOfDocument;
+	private String documentName;
+	private String documentText;
+	private int documentVersion;
 	private String userName;
-	private ClientViewHandler actionListener;
+	private ClientViewHandler clientViewHandler;
 	private Socket socket;
 	private int port;
 	private String host;
 	private PrintWriter out;
-	private MainView mainWindow;
+	private MainView mainView;
 
 	
 	public Client(int port, String host, MainView main) {
 		this.port = port;
 		this.host = host;
-		mainWindow = main;
+		mainView = main;
 
 	}
 
 	
 	public void start() throws IOException {
 		socket = new Socket(host, port);
-		mainWindow.openUsernameDialog();
-		actionListener = new ClientViewHandler(this, socket);
-		actionListener.run();
+		mainView.openUsernameDialog();
+		clientViewHandler = new ClientViewHandler(this, socket);
+		clientViewHandler.run();
 		out = new PrintWriter(socket.getOutputStream());
 		
 
 	}
 
 	
-	public void setMainWindow(MainView frame) {
-		this.mainWindow = frame;
+	public void setMainView(MainView frame) {
+		this.mainView = frame;
 	}
 
-	public void sendMessageToServer(String message) {
+	public void sendCommandToServer(String message) {
 		try {
 			out = new PrintWriter(socket.getOutputStream());
 			if (true) {System.out.println("socket is" + socket.getLocalPort());}
 			out.write(message + "\n");
 			out.flush();
 		} catch (IOException e) {
-			mainWindow.openErrorView(e.getMessage());
+			mainView.openErrorView(e.getMessage());
 		}
 	}
 	
 	
 
-	public void setUsername(String name){
+	public void setUserName(String name){
 		System.out.println("setting username");
 		userName = name;
-		mainWindow.setUsername(name);
-		mainWindow.switchToWelcomeView();
+		mainView.setUsername(name);
+		mainView.switchToWelcomeView();
 	}
 	
 
-	public String getUsername(){
+	public String getUserName(){
 		return userName;
 	}
 
 	
 	public String getDocumentName() {
-		return nameOfDocument;
+		return documentName;
 	}
 
 	
 	public String getText() {
-		return textOfDocument;
+		return documentText;
 	}
  
 
 	public int getVersion(){
-		 return versionOfDocument;
+		 return documentVersion;
 	}
 
 	
@@ -89,24 +90,24 @@ public class Client {
 		return socket;
 	}
 
-	public MainView getMainWindow() {
-		return mainWindow;
+	public MainView getMainView() {
+		return mainView;
 	}
 
 	
 	public void updateDocumentName(String name) {
 		System.out.println("updating documentName");
-		nameOfDocument = name;
+		documentName = name;
 	}
 
 	
 	public void updateText(String text) {
-		textOfDocument = text;
+		documentText = text;
 	}
 
 
 	public void updateVersion(int newVersion) {
-		versionOfDocument = newVersion;
+		documentVersion = newVersion;
 	}
 
 }

@@ -1,10 +1,10 @@
-package gui;
+package view;
 
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import client.Client;
+import model.Client;
 
 public class OpenDocumentDialog extends JOptionPane {
 	private static final long serialVersionUID = 1L;
@@ -29,7 +29,7 @@ public class OpenDocumentDialog extends JOptionPane {
 					JOptionPane.PLAIN_MESSAGE, icon, documentsOnServer, documentsOnServer[0]);
 			
 			if (s != null) {
-				client.sendMessageToServer("open " + s);
+				client.sendCommandToServer("open " + s);
 			}
 		}
 	}

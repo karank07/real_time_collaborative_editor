@@ -1,6 +1,6 @@
-package util;
+package controller;
 
-import client.Client;
+import model.Client;
 
 public class WelcomeViewThread extends Thread {
 
@@ -15,7 +15,7 @@ public class WelcomeViewThread extends Thread {
 
 
 	public void run() {
-		client.sendMessageToServer(message);
+		client.sendCommandToServer(message);
 	}
 
 }

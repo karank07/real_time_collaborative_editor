@@ -1,8 +1,10 @@
-package server;
+package controller;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import model.Server;
 
 
 public class ServerHandler {

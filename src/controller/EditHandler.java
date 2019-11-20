@@ -1,4 +1,4 @@
-package util;
+package controller;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,30 +6,32 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import model.Edit;
+
 
 public class EditHandler {
-	private final Map<String, List<Edit>> editLog;
+	private final Map<String, List<Edit>> editLogger;
 
 	public EditHandler(){
-		editLog = Collections.synchronizedMap(new HashMap<String, List<Edit>>());
+		editLogger = Collections.synchronizedMap(new HashMap<String, List<Edit>>());
 	
 	}
 	
 	
 	public synchronized void createNewlog(String documentName){
-		editLog.put(documentName, new ArrayList<Edit>());
+		editLogger.put(documentName, new ArrayList<Edit>());
 	}
 	
 	
 	public synchronized void logEdit(Edit edit){
 		String documentName = edit.getDocumentName();
-		editLog.get(documentName).add(edit);
+		editLogger.get(documentName).add(edit);
 	}
 
 	
 	public synchronized String manageEdit(String documentName, int version,
 			int offset) {
-		List<Edit> list = editLog.get(documentName);
+		List<Edit> list = editLogger.get(documentName);
 		int updatedOffset = offset;
 		for (Edit edit : list) {
 			if (edit.getVersion() >= version) {

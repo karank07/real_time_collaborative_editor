@@ -1,4 +1,4 @@
-package gui;
+package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,7 +18,7 @@ import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultCaret;
 
-import client.Client;
+import model.Client;
 import util.Encoding;
 import util.UpdateWorker;
 

@@ -1,4 +1,4 @@
-package gui;
+package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,8 +11,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import client.Client;
-import util.ConnectViewThread;
+import controller.ConnectionThread;
+import model.Client;
 
 @SuppressWarnings("all")
 
@@ -96,13 +96,13 @@ public class ConnectView extends JPanel implements ActionListener {
 						"Error", JOptionPane.ERROR_MESSAGE);
 
 			}
-			client.setMainWindow(frame);
+			client.setMainView(frame);
 			
 			// start a new ConnectViewThread thread that takes care of switching
 			// the connect view to the window view
 			// and also start the client so that client begins to listens for
 			// server updates.
-			ConnectViewThread thread = new ConnectViewThread(this);
+			ConnectionThread thread = new ConnectionThread(this);
 			// start the thread
 			thread.start();
 
