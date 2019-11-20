@@ -7,20 +7,19 @@ import java.util.Map;
 import model.Server;
 
 
+/**
+ * @author 
+ * ServerHandler Class Initializes server with default port 9997, documentTextmap, documentVersions
+ *
+ */
 public class ServerHandler {
-	private static final int defaultPort = 4444;
+	private static int defaultPort = 9997;
 
 	
 	public static void main(String[] args) {
-		int port;
-		if (args.length == 2 && args[0].equals("-p")
-				&& args[1].matches("\\d\\d?\\d?\\d?\\d?")) {
-			port = Integer.parseInt(args[1]);
-		} else {
-			port = defaultPort;
-		}
+		
 		try {
-			runServer(port);
+			runServer(defaultPort);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -29,9 +28,9 @@ public class ServerHandler {
 
 	public static void runServer(int port) throws IOException {
 		
-		Map<String, StringBuffer> map = new HashMap<String, StringBuffer>();
-		Map<String, Integer> versions = new HashMap<String, Integer>();
-		Server server = new Server(port, map, versions);
+		Map<String, StringBuffer> documentTextmap = new HashMap<String, StringBuffer>();
+		Map<String, Integer> documentVersions = new HashMap<String, Integer>();
+		Server server = new Server(port, documentTextmap, documentVersions);
 		server.serve();
 	}
 }

@@ -11,21 +11,26 @@ import model.Server;
 import model.Edit.Type;
 import util.Encoding;
 
+/**
+ * @author
+ * ServerThreadHandler Class extends Thread 
+ *
+ */
 public class ServerThreadHandler extends Thread {
 
 	final Socket socket;
 	private boolean alive;
 	private String username;
-	private final Server server;
-	private final String regex = "(bye)|(new [\\w\\d]+)|(look)|(open [\\w\\d]+)|(change .+)|(name [\\w\\d]+)";
-	private final String error1 = "Error: Document already exists.";
-	private final String error2 = "Error: No such document.";
-	private final String error3 = "Error: No documents exist yet.";
-	private final String error4 = "Error: Insert at invalid position.";
-	private final String error5 = "Error: You must enter a name when creating a new document.";
-	private final String error6 = "Error: Invalid arguments";
-	private final String error7 = "Error: Username is not available";
-	private final boolean sleep = false; 
+	private Server server;
+	private String regex = "(bye)|(new [\\w\\d]+)|(look)|(open [\\w\\d]+)|(change .+)|(name [\\w\\d]+)";
+	private String error1 = "Error: Document already exists.";
+	private String error2 = "Error: No such document.";
+	private String error3 = "Error: No documents exist yet.";
+	private String error4 = "Error: Insert at invalid position.";
+	private String error5 = "Error: You must enter a name when creating a new document.";
+	private String error6 = "Error: Invalid arguments";
+	private String error7 = "Error: Username is not available";
+	private boolean sleep = false; 
 
 
 	public ServerThreadHandler(Socket socket, Server server) {
@@ -33,7 +38,8 @@ public class ServerThreadHandler extends Thread {
 		this.server = server;
 		this.alive = true;
 	}
-
+	
+	@Override
 	public void run() {
 		try {
 			handleConnection(socket);

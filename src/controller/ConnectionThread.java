@@ -7,13 +7,19 @@ import javax.swing.JOptionPane;
 import view.ConnectView;
 
 
+/**
+ * @author 
+ * ConnectionThread class extends Thread, creates thread for each client on successful connection, to process incoming request 
+ *
+ */
 public class ConnectionThread extends Thread {
-    private final ConnectView connectView;
+    private ConnectView connectView;
 
 	public ConnectionThread(ConnectView connectView) {
 		this.connectView=connectView;
 	}
 
+	@Override
 	public void run() {
 		
 		try {

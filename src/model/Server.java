@@ -82,7 +82,7 @@ public class Server {
 	}
 
 	public synchronized String manageEdit(String documentName, int version, int offset) {
-		return editManager.manageEdit(documentName, version, offset);
+		return editManager.editHandler(documentName, version, offset);
 	}
 
 	
@@ -96,7 +96,7 @@ public class Server {
 	}
 
 	public synchronized void logEdit(Edit edit) {
-		editManager.logEdit(edit);
+		editManager.editLog(edit);
 	}
 
 	public synchronized void removeThread(ServerThreadHandler t) {
@@ -110,7 +110,7 @@ public class Server {
 
 		documentMap.put(documentName, new StringBuffer());
 		documentVersionMap.put(documentName, 1);
-		editManager.createNewlog(documentName);
+		editManager.createLog(documentName);
 
 	}
 

@@ -8,54 +8,66 @@ import java.util.Map;
 
 import model.Edit;
 
-
+/**
+ * @author EditHandler Class has methods for handling conflicts and maintains
+ *         concurrency by calculating edit offset position on each edit
+ *         operation by checking the current version.(Operational Transformation
+ *         technique)
+ */
 public class EditHandler {
-	private final Map<String, List<Edit>> editLogger;
+	private Map<String, List<Edit>> editLogger;
 
-	public EditHandler(){
+	public EditHandler() {
 		editLogger = Collections.synchronizedMap(new HashMap<String, List<Edit>>());
-	
+
 	}
-	
-	
-	public synchronized void createNewlog(String documentName){
-		editLogger.put(documentName, new ArrayList<Edit>());
+
+	/**
+	 * Thread Safe method to calculate new offset based on version change 
+	 * @param documentName
+	 * @param version
+	 * @param offset
+	 * @return result- calculated offset
+	 * 
+	 */
+	public synchronized String editHandler(String documentName, int version, int offset) {
+		List<Edit> list = editLogger.get(documentName);
+		int newOffset = offset;
+		for (Edit edit : list) {
+			if (edit.getVersion() >= version) {
+				newOffset = caclulateNewOffset(newOffset, edit.getOffset(), edit.getLength());
+				version = edit.getVersion();
+			}
+		}
+		String result = documentName + " " + (version + 1) + " " + offset;
+		return result;
 	}
-	
-	
-	public synchronized void logEdit(Edit edit){
+
+	/**
+	 * Edits current log
+	 * @param edit
+	 */
+	public synchronized void editLog(Edit edit) {
 		String documentName = edit.getDocumentName();
 		editLogger.get(documentName).add(edit);
 	}
 
-	
-	public synchronized String manageEdit(String documentName, int version,
-			int offset) {
-		List<Edit> list = editLogger.get(documentName);
-		int updatedOffset = offset;
-		for (Edit edit : list) {
-			if (edit.getVersion() >= version) {
-				updatedOffset = manageOffset(updatedOffset, edit.getOffset(),
-						edit.getLength());
-				version = edit.getVersion();
-			}
-		}
-		String result = documentName+" "+(version+1)+" "+offset;
-		return result;
+	/**
+	 * Adds new log for new edits
+	 * @param documentName
+	 */
+	public synchronized void createLog(String documentName) {
+		editLogger.put(documentName, new ArrayList<Edit>());
 	}
-	
-	private int manageOffset(int currentOffset, int otherOffset, int length) {
-		if (currentOffset < otherOffset) {
-			return currentOffset;
-		} else if (currentOffset < otherOffset + length && currentOffset >= otherOffset) {
+
+	private int caclulateNewOffset(int currentOffset, int otherOffset, int length) {
+		if (currentOffset < otherOffset + length && currentOffset >= otherOffset) {
 			return otherOffset;
+		} else if (currentOffset < otherOffset) {
+			return currentOffset;
 		} else {
 			return currentOffset + length;
 		}
 	}
-
-	
-	
-	
 
 }

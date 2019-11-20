@@ -34,7 +34,7 @@ public class Client {
 		socket = new Socket(host, port);
 		mainView.openUsernameDialog();
 		clientViewHandler = new ClientViewHandler(this, socket);
-		clientViewHandler.run();
+		clientViewHandler.readInputFromServer();
 		out = new PrintWriter(socket.getOutputStream());
 		
 
