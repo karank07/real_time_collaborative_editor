@@ -12,8 +12,7 @@ import model.Edit.Type;
 import util.Encoding;
 
 /**
- * @author
- * ServerThreadHandler Class extends Thread 
+ * @author ServerThreadHandler Class extends Thread
  *
  */
 public class ServerThreadHandler extends Thread {
@@ -30,15 +29,14 @@ public class ServerThreadHandler extends Thread {
 	private String error5 = "Error: You must enter a name when creating a new document.";
 	private String error6 = "Error: Invalid arguments";
 	private String error7 = "Error: Username is not available";
-	private boolean sleep = false; 
-
+	private boolean sleep = false;
 
 	public ServerThreadHandler(Socket socket, Server server) {
 		this.socket = socket;
 		this.server = server;
 		this.alive = true;
 	}
-	
+
 	@Override
 	public void run() {
 		try {
@@ -48,13 +46,11 @@ public class ServerThreadHandler extends Thread {
 	}
 
 	private void handleConnection(Socket socket) throws IOException {
-		BufferedReader in = new BufferedReader(new InputStreamReader(
-				socket.getInputStream()));
+		BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 		PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
 		try {
-			for (String line = in.readLine(); line != null; line = in
-					.readLine()) {
+			for (String line = in.readLine(); line != null; line = in.readLine()) {
 				String output = handleRequest(line);
 				// for debugging only:
 				if (sleep) {
@@ -90,16 +86,14 @@ public class ServerThreadHandler extends Thread {
 		}
 	}
 
-	
 	public String handleRequest(String input) {
 		if (!alive) {
-			throw new RuntimeException(
-					"Should not get here since the client already disconnects.");
+			throw new RuntimeException("Should not get here since the client already disconnects.");
 		}
 		String returnMessage = "";
 		input = input.trim();
 		String[] tokens = input.split(" ");
-		
+
 		if (!input.matches(regex)) {
 			// for invalid input
 			// empty documentName
@@ -115,27 +109,27 @@ public class ServerThreadHandler extends Thread {
 				returnMessage = "bye";
 
 			} else if (tokens[0].equals("new")) {
-				// 'new' request, make a new document if the name is valid. else, return a error message.
+				// 'new' request, make a new document if the name is valid. else, return a error
+				// message.
 				String documentName = tokens[1];
-				
+
 				if (server.getDocumentMap().containsKey(documentName)) {
 					returnMessage = error1;
 				} else {
 					server.addNewDocument(documentName);
 					returnMessage = "new " + documentName;
 				}
-			}else if(tokens[0].equals("name")){
-				if(server.nameIsAvailable(tokens[1])){
+			} else if (tokens[0].equals("name")) {
+				if (server.nameIsAvailable(tokens[1])) {
 					this.username = tokens[1];
 					server.addUsername(this, tokens[1]);
-					returnMessage = "name "+tokens[1];
-				}
-				else{
+					returnMessage = "name " + tokens[1];
+				} else {
 					returnMessage = error7;
 				}
 
 			} else if (tokens[0].equals("look")) {
-				// 'look' request, 
+				// 'look' request,
 				// if server does not have any documents, return error message
 				// else, return a string of names separated by a space
 				String result = "alldocs";
@@ -150,15 +144,12 @@ public class ServerThreadHandler extends Thread {
 				// 'open' request, must open a document if it exists on server
 				String documentName = tokens[1];
 				if (!server.getDocumentMap().containsKey(documentName)
-						|| !server.getDocumentVersionMap().containsKey(
-								documentName)) {
+						|| !server.getDocumentVersionMap().containsKey(documentName)) {
 					returnMessage = error2;
 				} else {
 					int version = server.getVersion(documentName);
-					String documentText = Encoding.encode(server
-							.getDocumentText(documentName));
-					returnMessage = "open " + documentName + " " + version
-							+ " " + documentText;
+					String documentText = Encoding.encode(server.getDocumentText(documentName));
+					returnMessage = "open " + documentName + " " + version + " " + documentText;
 				}
 
 			} else if (tokens[0].equals("change")) {
@@ -169,8 +160,8 @@ public class ServerThreadHandler extends Thread {
 				String documentName = tokens[1];
 				String editType = tokens[4];
 				String username = tokens[2];
-				if (!server.getDocumentMap().containsKey(documentName) || !server.getDocumentVersionMap().containsKey(
-						documentName)) {
+				if (!server.getDocumentMap().containsKey(documentName)
+						|| !server.getDocumentVersionMap().containsKey(documentName)) {
 					// if the server does not have the document
 					returnMessage = error2;
 				} else {
@@ -182,17 +173,20 @@ public class ServerThreadHandler extends Thread {
 					synchronized (lock) {
 						if (server.getVersion(documentName) != version) {
 							// the client's document version is out of date
-							//update the index relative to the previous inserts so that the change can be inserted
-							if(editType.equals("insert")){
+							// update the index relative to the previous inserts so that the change can be
+							// inserted
+							if (editType.equals("insert")) {
 								offset = Integer.parseInt(tokens[6]);
+							} else {
+								offset = Integer.parseInt(tokens[5]);
 							}
-							else{offset = Integer.parseInt(tokens[5]);}
-							String updates = server.manageEdit(documentName,version, offset);
+							String updates = server.manageEdit(documentName, version, offset);
 							String[] updatedTokens = updates.split(" ");
 							version = Integer.parseInt(updatedTokens[1]);
 							offset = Integer.parseInt(updatedTokens[2]);
-						} 
-						// then, the server could apply the (transformed) edit on document and return messages.
+						}
+						// then, the server could apply the (transformed) edit on document and return
+						// messages.
 						int length = server.getDocumentLength(documentName);
 						if (editType.equals("remove")) {
 							offset = Integer.parseInt(tokens[5]);
@@ -200,34 +194,28 @@ public class ServerThreadHandler extends Thread {
 							// The server changes the document text:
 							server.delete(documentName, offset, endPosition);
 							changeLength = offset - endPosition; // negative
-							edit = new Edit(documentName, Type.REMOVE, "",
-									version, offset, changeLength);
+							edit = new Edit(documentName, Type.REMOVE, "", version, offset, changeLength);
 							server.logEdit(edit);
 							// server updates version number:
 							server.updateVersion(documentName, version + 1);
-							returnMessage = createMessage(documentName, username,
-									version + 1, offset, changeLength,
-									Encoding.encode(server
-											.getDocumentText(documentName)));// encode the message!
+							returnMessage = createMessage(documentName, username, version + 1, offset, changeLength,
+									Encoding.encode(server.getDocumentText(documentName)));// encode the message!
 						} else if (editType.equals("insert")) {
 							Type type = Type.INSERT;
 							offset = Integer.parseInt(tokens[6]);
 							String text = Encoding.decode(tokens[5]);
 							if (offset > length) {
-								returnMessage = error4;
-							} else {
-								// the server updates the document text:
-								server.insert(documentName, offset, text);
-								changeLength = text.length();
-								edit = new Edit(documentName, type, text,
-										version, offset, changeLength);
-								server.logEdit(edit);
-								// the server updated the document version
-								server.updateVersion(documentName, version + 1);
-								returnMessage = createMessage(documentName, username,
-										version + 1, offset, changeLength,
-										Encoding.encode(server.getDocumentText(documentName)));
+								offset = length;
 							}
+							// the server updates the document text:
+							server.insert(documentName, offset, text);
+							changeLength = text.length();
+							edit = new Edit(documentName, type, text, version, offset, changeLength);
+							server.logEdit(edit);
+							// the server updated the document version
+							server.updateVersion(documentName, version + 1);
+							returnMessage = createMessage(documentName, username, version + 1, offset, changeLength,
+									Encoding.encode(server.getDocumentText(documentName)));
 						}
 					}
 				}
@@ -235,28 +223,22 @@ public class ServerThreadHandler extends Thread {
 		}
 		return returnMessage;
 	}
-	
-	
-	private String createMessage(String documentName, String username, int version, int offset,
-			int changeLength, String documentText) {
-		String message = "change " + documentName + " " +username+" "+ version + " "
-				+ offset + " " + changeLength + " " + documentText;
+
+	private String createMessage(String documentName, String username, int version, int offset, int changeLength,
+			String documentText) {
+		String message = "change " + documentName + " " + username + " " + version + " " + offset + " " + changeLength
+				+ " " + documentText;
 		return message;
 	}
-	
-	
-	
+
 	public Socket getSocket() {
 		return socket;
 	}
-	
-	
+
 	public String getUsername() {
 		return username;
 	}
 
-	
-	
 	public boolean getAlive() {
 		return alive;
 	}
