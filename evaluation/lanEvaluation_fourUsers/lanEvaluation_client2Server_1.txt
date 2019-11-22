@@ -1,0 +1,19 @@
+Sending command to server from client: null name user1 at 2019-11-22 at 00:38:11.488 EST
+Sending command to server from client: user1 new doc at 2019-11-22 at 00:38:15.418 EST
+Sending command to server from client: user1 change doc user1 1 insert h 0 at 2019-11-22 at 00:40:03.393 EST
+Sending command to server from client: user1 change doc user1 2 insert e 1 at 2019-11-22 at 00:40:04.383 EST
+Sending command to server from client: user1 change doc user1 3 insert l 2 at 2019-11-22 at 00:40:05.050 EST
+Sending command to server from client: user1 change doc user1 4 insert l 3 at 2019-11-22 at 00:40:05.270 EST
+Sending command to server from client: user1 change doc user1 5 insert o 4 at 2019-11-22 at 00:40:05.567 EST
+Sending command to server from client: user1 change doc user1 6 insert + 5 at 2019-11-22 at 00:40:06.005 EST
+Sending command to server from client: user1 change doc user1 7 insert w 6 at 2019-11-22 at 00:40:06.787 EST
+Sending command to server from client: user1 change doc user1 8 insert o 7 at 2019-11-22 at 00:40:07.287 EST
+Sending command to server from client: user1 change doc user1 9 insert r 8 at 2019-11-22 at 00:40:07.772 EST
+Sending command to server from client: user1 change doc user1 10 insert l 9 at 2019-11-22 at 00:40:08.335 EST
+Sending command to server from client: user1 change doc user1 11 insert d 10 at 2019-11-22 at 00:40:08.882 EST
+Sending command to server from client: user1 change doc user1 12 remove 10 11 at 2019-11-22 at 00:40:11.260 EST
+Sending command to server from client: user1 change doc user1 13 remove 9 10 at 2019-11-22 at 00:40:11.510 EST
+Sending command to server from client: user1 change doc user1 14 remove 8 9 at 2019-11-22 at 00:40:11.713 EST
+Sending command to server from client: user1 change doc user1 15 remove 7 8 at 2019-11-22 at 00:40:11.964 EST
+Sending command to server from client: user1 change doc user1 16 remove 6 7 at 2019-11-22 at 00:40:12.331 EST
+Sending command to server from client: user1 bye at 2019-11-22 at 00:40:47.071 EST

@@ -6,9 +6,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.apache.commons.net.ntp.NTPUDPClient;
+import org.apache.commons.net.ntp.TimeInfo;
 
 import model.Edit;
 import model.Server;
@@ -34,11 +38,21 @@ public class ServerThreadHandler extends Thread {
 	private String error6 = "Error: Invalid arguments";
 	private String error7 = "Error: Username is not available";
 	private boolean sleep = false;
+	BufferedWriter writer;
+
+	public static final String TIME_SERVER = "time-a.nist.gov";
 
 	public ServerThreadHandler(Socket socket, Server server) {
 		this.socket = socket;
 		this.server = server;
 		this.alive = true;
+		try {
+			writer = new BufferedWriter(new FileWriter(
+					"D:\\\\Project\\\\DS_PROJECT\\\\collaborative_editor\\\\evaluation\\\\lanEvaluation_server.txt"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	@Override
@@ -52,17 +66,20 @@ public class ServerThreadHandler extends Thread {
 	private void handleConnection(Socket socket) throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 		PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-		SimpleDateFormat formatter;
-		Date date;
-		BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\\\Project\\\\DS_PROJECT\\\\collaborative_editor\\\\evaluation\\\\lanEvaluation_server.txt"));
-		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss.SSS z");
+		NTPUDPClient timeClient = new NTPUDPClient();
+		InetAddress inetAddress = InetAddress.getByName(TIME_SERVER);
+		TimeInfo timeInfo;
+		Date time;
+		long returnTime;
+
 		try {
 			for (String line = in.readLine(); line != null; line = in.readLine()) {
-				    
-				formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss.SSS z");
-				date = new Date(System.currentTimeMillis());
-				System.out.println("Command at Server: "+line+" "+formatter.format(date));
-				writer.write("Command at Server: "+line+" "+formatter.format(date));
+				timeInfo = timeClient.getTime(inetAddress);
+				returnTime = timeInfo.getReturnTime();
+				time = new Date(returnTime);
+				System.out.println("Command at Server: " + line + " " + formatter.format(time));
+				writer.write("Command at Server: " + line + " " + formatter.format(time));
 				writer.newLine();
 				writer.flush();
 				String output = handleRequest(line);
@@ -232,7 +249,7 @@ public class ServerThreadHandler extends Thread {
 							returnMessage = createMessage(documentName, username, version + 1, offset, changeLength,
 									Encoding.encode(server.getDocumentText(documentName)));
 						}
-						
+
 					}
 				}
 			}

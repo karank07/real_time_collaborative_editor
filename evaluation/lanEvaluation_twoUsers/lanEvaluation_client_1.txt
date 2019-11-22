@@ -1,0 +1,35 @@
+Command at client: null is name user1 2019-11-22 at 10:53:07.894 EST
+Command at client: user1 is alldocs doc 2019-11-22 at 10:53:10.002 EST
+Command at client: user1 is open doc 1  2019-11-22 at 10:53:11.823 EST
+Command at client: user1 is change doc user1 2 0 1 h 2019-11-22 at 10:53:15.990 EST
+Command at client: user1 is change doc user1 3 1 1 he 2019-11-22 at 10:53:16.157 EST
+Command at client: user1 is change doc user1 4 2 1 hel 2019-11-22 at 10:53:16.892 EST
+Command at client: user1 is change doc user1 5 3 1 hell 2019-11-22 at 10:53:17.108 EST
+Command at client: user1 is change doc user1 6 4 1 hello 2019-11-22 at 10:53:17.327 EST
+Command at client: user1 is change doc user1 7 5 1 hello+ 2019-11-22 at 10:53:17.583 EST
+Command at client: user1 is change doc user1 8 6 1 hello+w 2019-11-22 at 10:53:18.192 EST
+Command at client: user1 is change doc user1 9 7 1 hello+wo 2019-11-22 at 10:53:18.194 EST
+Command at client: user1 is change doc user1 10 8 1 hello+wor 2019-11-22 at 10:53:18.509 EST
+Command at client: user1 is change doc user1 11 9 1 hello+worl 2019-11-22 at 10:53:18.855 EST
+Command at client: user1 is change doc user1 12 10 1 hello+world 2019-11-22 at 10:53:19.066 EST
+Command at client: user1 is change doc user1 13 10 -1 hello+worl 2019-11-22 at 10:53:19.968 EST
+Command at client: user1 is change doc user1 14 9 -1 hello+wor 2019-11-22 at 10:53:20.212 EST
+Command at client: user1 is change doc user1 15 8 -1 hello+wo 2019-11-22 at 10:53:20.490 EST
+Command at client: user1 is change doc user1 16 7 -1 hello+w 2019-11-22 at 10:53:20.776 EST
+Command at client: user1 is change doc user1 17 6 -1 hello+ 2019-11-22 at 10:53:21.167 EST
+Command at client: user1 is change doc user2 18 6 1 hello+h 2019-11-22 at 10:53:23.400 EST
+Command at client: user1 is change doc user2 19 7 1 hello+he 2019-11-22 at 10:53:23.706 EST
+Command at client: user1 is change doc user2 20 8 1 hello+hel 2019-11-22 at 10:53:23.832 EST
+Command at client: user1 is change doc user2 21 9 1 hello+hell 2019-11-22 at 10:53:23.948 EST
+Command at client: user1 is change doc user2 22 10 1 hello+hello 2019-11-22 at 10:53:24.217 EST
+Command at client: user1 is change doc user2 23 11 1 hello+hello+ 2019-11-22 at 10:53:24.222 EST
+Command at client: user1 is change doc user2 24 12 1 hello+hello+w 2019-11-22 at 10:53:24.526 EST
+Command at client: user1 is change doc user2 25 13 1 hello+hello+wo 2019-11-22 at 10:53:24.831 EST
+Command at client: user1 is change doc user2 26 14 1 hello+hello+wor 2019-11-22 at 10:53:25.139 EST
+Command at client: user1 is change doc user2 27 15 1 hello+hello+worl 2019-11-22 at 10:53:25.285 EST
+Command at client: user1 is change doc user2 28 16 1 hello+hello+world 2019-11-22 at 10:53:25.651 EST
+Command at client: user1 is change doc user2 29 16 -1 hello+hello+worl 2019-11-22 at 10:53:27.494 EST
+Command at client: user1 is change doc user2 30 15 -1 hello+hello+wor 2019-11-22 at 10:53:27.698 EST
+Command at client: user1 is change doc user2 31 14 -1 hello+hello+wo 2019-11-22 at 10:53:27.903 EST
+Command at client: user1 is change doc user2 32 13 -1 hello+hello+w 2019-11-22 at 10:53:28.313 EST
+Command at client: user1 is change doc user2 33 12 -1 hello+hello+ 2019-11-22 at 10:53:28.722 EST

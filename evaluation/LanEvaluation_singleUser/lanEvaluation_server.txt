@@ -1,0 +1,19 @@
+Command at Server: name user 2019-11-21 at 23:29:44.596 EST
+Command at Server: new doc 2019-11-21 at 23:29:47.585 EST
+Command at Server: change doc user 1 insert h 0 2019-11-21 at 23:29:49.254 EST
+Command at Server: change doc user 2 insert e 1 2019-11-21 at 23:29:49.456 EST
+Command at Server: change doc user 3 insert l 2 2019-11-21 at 23:29:49.706 EST
+Command at Server: change doc user 4 insert l 3 2019-11-21 at 23:29:49.906 EST
+Command at Server: change doc user 5 insert o 4 2019-11-21 at 23:29:50.117 EST
+Command at Server: change doc user 6 insert + 5 2019-11-21 at 23:29:50.355 EST
+Command at Server: change doc user 7 insert w 6 2019-11-21 at 23:29:50.627 EST
+Command at Server: change doc user 8 insert o 7 2019-11-21 at 23:29:50.762 EST
+Command at Server: change doc user 9 insert r 8 2019-11-21 at 23:29:51.027 EST
+Command at Server: change doc user 10 insert l 9 2019-11-21 at 23:29:51.656 EST
+Command at Server: change doc user 11 insert d 10 2019-11-21 at 23:29:51.846 EST
+Command at Server: change doc user 12 remove 10 11 2019-11-21 at 23:29:52.922 EST
+Command at Server: change doc user 13 remove 9 10 2019-11-21 at 23:29:53.160 EST
+Command at Server: change doc user 14 remove 8 9 2019-11-21 at 23:29:53.373 EST
+Command at Server: change doc user 15 remove 7 8 2019-11-21 at 23:29:53.605 EST
+Command at Server: change doc user 16 remove 6 7 2019-11-21 at 23:29:53.850 EST
+Command at Server: bye 2019-11-21 at 23:29:55.553 EST

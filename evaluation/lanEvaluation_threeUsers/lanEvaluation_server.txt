@@ -1,0 +1,60 @@
+Server created. Listening on port 9997
+Command at Server: name user1 2019-11-22 at 13:23:23.953 EST
+Command at Server: new doc 2019-11-22 at 13:23:26.711 EST
+Command at Server: name user2 2019-11-22 at 13:24:02.267 EST
+Command at Server: name user3 2019-11-22 at 13:25:27.058 EST
+Command at Server: look 2019-11-22 at 13:25:51.190 EST
+Command at Server: open doc 2019-11-22 at 13:25:52.556 EST
+Command at Server: look 2019-11-22 at 13:25:54.293 EST
+Command at Server: open doc 2019-11-22 at 13:25:55.832 EST
+Command at Server: change doc user1 1 insert h 0 2019-11-22 at 13:25:58.927 EST
+Command at Server: change doc user1 2 insert e 1 2019-11-22 at 13:25:59.154 EST
+Command at Server: change doc user1 3 insert l 2 2019-11-22 at 13:25:59.658 EST
+Command at Server: change doc user1 4 insert l 3 2019-11-22 at 13:25:59.857 EST
+Command at Server: change doc user1 5 insert o 4 2019-11-22 at 13:26:00.099 EST
+Command at Server: change doc user1 6 insert + 5 2019-11-22 at 13:26:00.491 EST
+Command at Server: change doc user1 7 insert w 6 2019-11-22 at 13:26:00.723 EST
+Command at Server: change doc user1 8 insert o 7 2019-11-22 at 13:26:00.918 EST
+Command at Server: change doc user1 9 insert r 8 2019-11-22 at 13:26:01.167 EST
+Command at Server: change doc user1 10 insert l 9 2019-11-22 at 13:26:01.394 EST
+Command at Server: change doc user1 11 insert d 10 2019-11-22 at 13:26:01.891 EST
+Command at Server: change doc user1 12 remove 10 11 2019-11-22 at 13:26:02.786 EST
+Command at Server: change doc user1 13 remove 9 10 2019-11-22 at 13:26:03.003 EST
+Command at Server: change doc user1 14 remove 8 9 2019-11-22 at 13:26:03.201 EST
+Command at Server: change doc user1 15 remove 7 8 2019-11-22 at 13:26:03.429 EST
+Command at Server: change doc user1 16 remove 6 7 2019-11-22 at 13:26:03.757 EST
+Command at Server: change doc user2 17 insert h 6 2019-11-22 at 13:26:06.380 EST
+Command at Server: change doc user2 18 insert e 7 2019-11-22 at 13:26:06.994 EST
+Command at Server: change doc user2 19 insert l 8 2019-11-22 at 13:26:07.038 EST
+Command at Server: change doc user2 20 insert l 9 2019-11-22 at 13:26:07.162 EST
+Command at Server: change doc user2 21 insert o 10 2019-11-22 at 13:26:07.402 EST
+Command at Server: change doc user2 22 insert + 11 2019-11-22 at 13:26:07.472 EST
+Command at Server: change doc user2 23 insert w 12 2019-11-22 at 13:26:07.769 EST
+Command at Server: change doc user2 24 insert o 13 2019-11-22 at 13:26:08.119 EST
+Command at Server: change doc user2 25 insert r 14 2019-11-22 at 13:26:08.365 EST
+Command at Server: change doc user2 26 insert l 15 2019-11-22 at 13:26:08.633 EST
+Command at Server: change doc user2 27 insert d 16 2019-11-22 at 13:26:08.940 EST
+Command at Server: change doc user2 28 remove 16 17 2019-11-22 at 13:26:09.859 EST
+Command at Server: change doc user2 29 remove 15 16 2019-11-22 at 13:26:09.954 EST
+Command at Server: change doc user2 30 remove 14 15 2019-11-22 at 13:26:10.116 EST
+Command at Server: change doc user2 31 remove 13 14 2019-11-22 at 13:26:10.258 EST
+Command at Server: change doc user2 32 remove 12 13 2019-11-22 at 13:26:10.476 EST
+Command at Server: change doc user3 33 insert h 12 2019-11-22 at 13:26:13.561 EST
+Command at Server: change doc user3 34 insert e 13 2019-11-22 at 13:26:14.002 EST
+Command at Server: change doc user3 35 insert l 14 2019-11-22 at 13:26:14.173 EST
+Command at Server: change doc user3 36 insert l 15 2019-11-22 at 13:26:14.297 EST
+Command at Server: change doc user3 37 insert o 16 2019-11-22 at 13:26:14.574 EST
+Command at Server: change doc user3 37 insert + 17 2019-11-22 at 13:26:14.580 EST
+Command at Server: change doc user3 39 insert w 18 2019-11-22 at 13:26:15.099 EST
+Command at Server: change doc user3 40 insert o 19 2019-11-22 at 13:26:15.289 EST
+Command at Server: change doc user3 41 insert r 20 2019-11-22 at 13:26:15.596 EST
+Command at Server: change doc user3 42 insert l 21 2019-11-22 at 13:26:15.693 EST
+Command at Server: change doc user3 43 insert d 22 2019-11-22 at 13:26:16.007 EST
+Command at Server: change doc user3 44 remove 22 23 2019-11-22 at 13:26:16.518 EST
+Command at Server: change doc user3 45 remove 21 22 2019-11-22 at 13:26:16.594 EST
+Command at Server: change doc user3 46 remove 20 21 2019-11-22 at 13:26:16.823 EST
+Command at Server: change doc user3 47 remove 19 20 2019-11-22 at 13:26:16.916 EST
+Command at Server: change doc user3 48 remove 18 19 2019-11-22 at 13:26:17.337 EST
+Command at Server: bye 2019-11-22 at 13:26:20.922 EST
+Command at Server: bye 2019-11-22 at 13:26:21.368 EST
+Command at Server: bye 2019-11-22 at 13:26:22.560 EST

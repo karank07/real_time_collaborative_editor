@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -14,6 +15,8 @@ import java.util.regex.Pattern;
 
 import model.Client;
 import view.MainView;
+import org.apache.commons.net.ntp.NTPUDPClient;
+import org.apache.commons.net.ntp.TimeInfo;
 
 /**
  * @author 
@@ -38,6 +41,8 @@ public class ClientViewHandler {
 	private String regex = "(Error: .+)|" + "(alldocs [\\w|\\d]+)|(new [\\w|\\d]+)|(open [\\w|\\d]+\\s(\\d+)\\s?(.+)?)|"
 			+ "(change [\\w|\\d]+\\s[\\w|\\d]+\\s(\\d+)\\s(\\d+)\\s(-?\\d+)\\s?(.+)?)|(name [\\d\\w]+)";
 	BufferedWriter writer;
+
+	public static final String TIME_SERVER = "time-a.nist.gov";
 	public ClientViewHandler(Client client, Socket socket) {
 
 		this.mainView = client.getMainView();
@@ -114,15 +119,20 @@ public class ClientViewHandler {
 
 	public void readInputFromServer() throws IOException {
 		in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		SimpleDateFormat formatter;
-		Date date;
-		
+		SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss.SSS z");
+		NTPUDPClient timeClient = new NTPUDPClient();
+		InetAddress inetAddress = InetAddress.getByName(TIME_SERVER);
+		TimeInfo timeInfo ;
+		Date time;
+		long returnTime;
 		try {
 			for (String input = in.readLine(); input != null; input = in.readLine()) {
-				formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss.SSS z");
-				date = new Date(System.currentTimeMillis());
-				System.out.println("Command at client: "+ client.getUserName()+" is "+input+" "+formatter.format(date));
-				writer.write("Command at client: "+ client.getUserName()+" is "+input+" "+formatter.format(date));
+				timeInfo = timeClient.getTime(inetAddress);
+				
+				returnTime= timeInfo.getReturnTime();
+				time= new Date(returnTime);
+				System.out.println("Command at client: "+ client.getUserName()+" is "+input+" "+formatter.format(time));
+				writer.write("Command at client: "+ client.getUserName()+" is "+input+" "+formatter.format(time));
 				writer.newLine();
 				writer.flush();
 				commandHandler(input); // incoming commands from server

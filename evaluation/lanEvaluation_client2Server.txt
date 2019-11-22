@@ -1,19 +1,8 @@
-Sending command to server from client: null name user at 2019-11-21 at 23:29:44.514 EST
-Sending command to server from client: user new doc at 2019-11-21 at 23:29:47.583 EST
-Sending command to server from client: user change doc user 1 insert h 0 at 2019-11-21 at 23:29:49.252 EST
-Sending command to server from client: user change doc user 2 insert e 1 at 2019-11-21 at 23:29:49.455 EST
-Sending command to server from client: user change doc user 3 insert l 2 at 2019-11-21 at 23:29:49.705 EST
-Sending command to server from client: user change doc user 4 insert l 3 at 2019-11-21 at 23:29:49.905 EST
-Sending command to server from client: user change doc user 5 insert o 4 at 2019-11-21 at 23:29:50.115 EST
-Sending command to server from client: user change doc user 6 insert + 5 at 2019-11-21 at 23:29:50.352 EST
-Sending command to server from client: user change doc user 7 insert w 6 at 2019-11-21 at 23:29:50.627 EST
-Sending command to server from client: user change doc user 8 insert o 7 at 2019-11-21 at 23:29:50.761 EST
-Sending command to server from client: user change doc user 9 insert r 8 at 2019-11-21 at 23:29:51.026 EST
-Sending command to server from client: user change doc user 10 insert l 9 at 2019-11-21 at 23:29:51.655 EST
-Sending command to server from client: user change doc user 11 insert d 10 at 2019-11-21 at 23:29:51.844 EST
-Sending command to server from client: user change doc user 12 remove 10 11 at 2019-11-21 at 23:29:52.920 EST
-Sending command to server from client: user change doc user 13 remove 9 10 at 2019-11-21 at 23:29:53.159 EST
-Sending command to server from client: user change doc user 14 remove 8 9 at 2019-11-21 at 23:29:53.371 EST
-Sending command to server from client: user change doc user 15 remove 7 8 at 2019-11-21 at 23:29:53.604 EST
-Sending command to server from client: user change doc user 16 remove 6 7 at 2019-11-21 at 23:29:53.849 EST
-Sending command to server from client: user bye at 2019-11-21 at 23:29:55.552 EST
+Sending command to server from client: null name user at 2019-11-22 at 14:01:31.574 EST
+Sending command to server from client: user new doc at 2019-11-22 at 14:01:35.184 EST
+Sending command to server from client: user change doc user 1 insert h 0 at 2019-11-22 at 14:01:36.396 EST
+Sending command to server from client: user change doc user 1 insert e 1 at 2019-11-22 at 14:01:36.525 EST
+Sending command to server from client: user change doc user 2 insert l 2 at 2019-11-22 at 14:01:36.663 EST
+Sending command to server from client: user change doc user 3 insert l 3 at 2019-11-22 at 14:01:36.804 EST
+Sending command to server from client: user change doc user 4 insert o 4 at 2019-11-22 at 14:01:36.963 EST
+Sending command to server from client: user bye at 2019-11-22 at 14:01:38.770 EST
