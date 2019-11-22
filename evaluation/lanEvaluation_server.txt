@@ -1,8 +1,0 @@
-Command at Server: name user1 2019-11-22 at 14:42:17.100 EST
-Command at Server: new doc 2019-11-22 at 14:42:25.134 EST
-Command at Server: change doc user1 1 insert h 0 2019-11-22 at 14:42:27.532 EST
-Command at Server: change doc user1 2 insert e 1 2019-11-22 at 14:42:28.046 EST
-Command at Server: change doc user1 2 insert l 2 2019-11-22 at 14:42:28.103 EST
-Command at Server: change doc user1 2 insert l 3 2019-11-22 at 14:42:28.205 EST
-Command at Server: change doc user1 4 insert o 3 2019-11-22 at 14:42:28.378 EST
-Command at Server: bye 2019-11-22 at 14:42:40.845 EST

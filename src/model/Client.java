@@ -39,7 +39,9 @@ public class Client {
 
 		try {
 			writer = new BufferedWriter(new FileWriter(
-					"D:\\\\Project\\\\DS_PROJECT\\\\collaborative_editor\\\\evaluation\\\\lanEvaluation_client2Server.txt"));
+					"C:\\lanEvaluation_client2Server.txt"));
+//			writer = new BufferedWriter(new FileWriter(
+//					"D:\\\\Project\\\\DS_PROJECT\\\\collaborative_editor\\\\evaluation\\\\lanEvaluation_client2Server.txt"));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}

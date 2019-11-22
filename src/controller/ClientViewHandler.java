@@ -19,9 +19,11 @@ import org.apache.commons.net.ntp.NTPUDPClient;
 import org.apache.commons.net.ntp.TimeInfo;
 
 /**
- * @author 
+ * @author
  * 
- * ClientViewHandler class listens to data stream for incoming commands from server, and performs create,edit document operations for each client. 
+ *         ClientViewHandler class listens to data stream for incoming commands
+ *         from server, and performs create,edit document operations for each
+ *         client.
  *
  */
 
@@ -31,7 +33,7 @@ public class ClientViewHandler {
 	private Socket socket;
 	private BufferedReader in;
 	private MainView mainView;
-	
+
 	private int groupLengthChange = 10;
 	private int groupTextChange = 11;
 	private int groupVersionChange = 8;
@@ -43,21 +45,26 @@ public class ClientViewHandler {
 	BufferedWriter writer;
 
 	public static final String TIME_SERVER = "time-a.nist.gov";
+
 	public ClientViewHandler(Client client, Socket socket) {
 
 		this.mainView = client.getMainView();
 		this.client = client;
 		this.socket = socket;
 		try {
-			writer = new BufferedWriter(new FileWriter("D:\\\\Project\\\\DS_PROJECT\\\\collaborative_editor\\\\evaluation\\\\lanEvaluation_client.txt"));
+			writer = new BufferedWriter(new FileWriter("C:\\lanEvaluation_client.txt"));
+//			writer = new BufferedWriter(new FileWriter(
+//					"D:\\\\Project\\\\DS_PROJECT\\\\collaborative_editor\\\\evaluation\\\\lanEvaluation_client.txt"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	/**
-	 * Performs setUsername, create & edit documents, show-all documents, open document
+	 * Performs setUsername, create & edit documents, show-all documents, open
+	 * document
+	 * 
 	 * @param input command from server
 	 * 
 	 */
@@ -119,20 +126,22 @@ public class ClientViewHandler {
 
 	public void readInputFromServer() throws IOException {
 		in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss.SSS z");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss.SSS z");
 		NTPUDPClient timeClient = new NTPUDPClient();
 		InetAddress inetAddress = InetAddress.getByName(TIME_SERVER);
-		TimeInfo timeInfo ;
+		TimeInfo timeInfo;
 		Date time;
 		long returnTime;
 		try {
 			for (String input = in.readLine(); input != null; input = in.readLine()) {
 				timeInfo = timeClient.getTime(inetAddress);
-				returnTime=timeInfo.getMessage().getTransmitTimeStamp().getTime();
-				//returnTime= timeInfo.getReturnTime();
-				time= new Date(returnTime);
-				System.out.println("Command at client: "+ client.getUserName()+" is "+input+" "+formatter.format(time));
-				writer.write("Command at client: "+ client.getUserName()+" is "+input+" "+formatter.format(time));
+				returnTime = timeInfo.getMessage().getTransmitTimeStamp().getTime();
+				// returnTime= timeInfo.getReturnTime();
+				time = new Date(returnTime);
+				System.out.println(
+						"Command at client: " + client.getUserName() + " is " + input + " " + formatter.format(time));
+				writer.write(
+						"Command at client: " + client.getUserName() + " is " + input + " " + formatter.format(time));
 				writer.newLine();
 				writer.flush();
 				commandHandler(input); // incoming commands from server
