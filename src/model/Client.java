@@ -1,9 +1,13 @@
 package model;
 
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import controller.ClientViewHandler;
 import view.MainView;
@@ -20,12 +24,19 @@ public class Client {
 	private String host;
 	private PrintWriter out;
 	private MainView mainView;
-
+	BufferedWriter writer;
 	
 	public Client(int port, String host, MainView main) {
 		this.port = port;
 		this.host = host;
 		mainView = main;
+
+		try {
+			writer= new BufferedWriter(new FileWriter("D:\\\\Project\\\\DS_PROJECT\\\\collaborative_editor\\\\evaluation\\\\lanEvaluation_client2Server.txt"));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
 
 	}
 
@@ -46,7 +57,19 @@ public class Client {
 	}
 
 	public void sendCommandToServer(String message) {
+		SimpleDateFormat formatter;
+		Date date;
+		
 		try {
+			formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss.SSS z");
+			date = new Date(System.currentTimeMillis());
+			
+			System.out.println("Sending command to server from client: "+ this.userName +" "+message+" at "+formatter.format(date) );
+			writer.write("Sending command "
+					+ "to server from client: "+ this.userName +" "+message+" at "+formatter.format(date) );
+			writer.newLine();
+			writer.flush();
+			
 			out = new PrintWriter(socket.getOutputStream());
 			if (true) {System.out.println("socket is" + socket.getLocalPort());}
 			out.write(message + "\n");

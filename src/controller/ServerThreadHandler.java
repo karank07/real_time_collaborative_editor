@@ -1,10 +1,14 @@
 package controller;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import model.Edit;
 import model.Server;
@@ -48,9 +52,19 @@ public class ServerThreadHandler extends Thread {
 	private void handleConnection(Socket socket) throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 		PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-
+		SimpleDateFormat formatter;
+		Date date;
+		BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\\\Project\\\\DS_PROJECT\\\\collaborative_editor\\\\evaluation\\\\lanEvaluation_server.txt"));
+		
 		try {
 			for (String line = in.readLine(); line != null; line = in.readLine()) {
+				    
+				formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss.SSS z");
+				date = new Date(System.currentTimeMillis());
+				System.out.println("Command at Server: "+line+" "+formatter.format(date));
+				writer.write("Command at Server: "+line+" "+formatter.format(date));
+				writer.newLine();
+				writer.flush();
 				String output = handleRequest(line);
 				// for debugging only:
 				if (sleep) {
@@ -83,6 +97,7 @@ public class ServerThreadHandler extends Thread {
 		} finally {
 			out.close();
 			in.close();
+			writer.close();
 		}
 	}
 
@@ -217,6 +232,7 @@ public class ServerThreadHandler extends Thread {
 							returnMessage = createMessage(documentName, username, version + 1, offset, changeLength,
 									Encoding.encode(server.getDocumentText(documentName)));
 						}
+						
 					}
 				}
 			}

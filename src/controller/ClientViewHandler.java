@@ -1,10 +1,14 @@
 package controller;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -33,12 +37,18 @@ public class ClientViewHandler {
 	private int openText = 6;
 	private String regex = "(Error: .+)|" + "(alldocs [\\w|\\d]+)|(new [\\w|\\d]+)|(open [\\w|\\d]+\\s(\\d+)\\s?(.+)?)|"
 			+ "(change [\\w|\\d]+\\s[\\w|\\d]+\\s(\\d+)\\s(\\d+)\\s(-?\\d+)\\s?(.+)?)|(name [\\d\\w]+)";
-	
+	BufferedWriter writer;
 	public ClientViewHandler(Client client, Socket socket) {
 
 		this.mainView = client.getMainView();
 		this.client = client;
 		this.socket = socket;
+		try {
+			writer = new BufferedWriter(new FileWriter("D:\\\\Project\\\\DS_PROJECT\\\\collaborative_editor\\\\evaluation\\\\lanEvaluation_client.txt"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	/**
@@ -104,14 +114,24 @@ public class ClientViewHandler {
 
 	public void readInputFromServer() throws IOException {
 		in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+		SimpleDateFormat formatter;
+		Date date;
+		
 		try {
 			for (String input = in.readLine(); input != null; input = in.readLine()) {
+				formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss.SSS z");
+				date = new Date(System.currentTimeMillis());
+				System.out.println("Command at client: "+ client.getUserName()+" is "+input+" "+formatter.format(date));
+				writer.write("Command at client: "+ client.getUserName()+" is "+input+" "+formatter.format(date));
+				writer.newLine();
+				writer.flush();
 				commandHandler(input); // incoming commands from server
 			}
 		}
 
 		finally {
 			in.close();
+			writer.close();
 		}
 	}
 
