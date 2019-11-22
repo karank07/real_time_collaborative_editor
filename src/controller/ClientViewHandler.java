@@ -128,8 +128,8 @@ public class ClientViewHandler {
 		try {
 			for (String input = in.readLine(); input != null; input = in.readLine()) {
 				timeInfo = timeClient.getTime(inetAddress);
-				
-				returnTime= timeInfo.getReturnTime();
+				returnTime=timeInfo.getMessage().getTransmitTimeStamp().getTime();
+				//returnTime= timeInfo.getReturnTime();
 				time= new Date(returnTime);
 				System.out.println("Command at client: "+ client.getUserName()+" is "+input+" "+formatter.format(time));
 				writer.write("Command at client: "+ client.getUserName()+" is "+input+" "+formatter.format(time));

@@ -76,7 +76,8 @@ public class ServerThreadHandler extends Thread {
 		try {
 			for (String line = in.readLine(); line != null; line = in.readLine()) {
 				timeInfo = timeClient.getTime(inetAddress);
-				returnTime = timeInfo.getReturnTime();
+				returnTime=timeInfo.getMessage().getTransmitTimeStamp().getTime();
+				//returnTime= timeInfo.getReturnTime();
 				time = new Date(returnTime);
 				System.out.println("Command at Server: " + line + " " + formatter.format(time));
 				writer.write("Command at Server: " + line + " " + formatter.format(time));

@@ -77,7 +77,8 @@ public class Client {
 
 		try {
 			timeInfo = timeClient.getTime(inetAddress);
-			returnTime = timeInfo.getReturnTime();
+			returnTime=timeInfo.getMessage().getTransmitTimeStamp().getTime();
+			//returnTime= timeInfo.getReturnTime();
 			time = new Date(returnTime);
 			
 			System.out.println("Sending command to server from client: " + this.userName + " " + message + " at "
