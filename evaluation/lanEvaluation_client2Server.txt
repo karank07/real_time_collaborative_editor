@@ -1,8 +1,0 @@
-Sending command to server from client: null name user at 2019-11-22 at 14:01:31.574 EST
-Sending command to server from client: user new doc at 2019-11-22 at 14:01:35.184 EST
-Sending command to server from client: user change doc user 1 insert h 0 at 2019-11-22 at 14:01:36.396 EST
-Sending command to server from client: user change doc user 1 insert e 1 at 2019-11-22 at 14:01:36.525 EST
-Sending command to server from client: user change doc user 2 insert l 2 at 2019-11-22 at 14:01:36.663 EST
-Sending command to server from client: user change doc user 3 insert l 3 at 2019-11-22 at 14:01:36.804 EST
-Sending command to server from client: user change doc user 4 insert o 4 at 2019-11-22 at 14:01:36.963 EST
-Sending command to server from client: user bye at 2019-11-22 at 14:01:38.770 EST

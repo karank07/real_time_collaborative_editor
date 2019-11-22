@@ -1,7 +1,0 @@
-Command at client: null is name user 2019-11-22 at 14:01:31.737 EST
-Command at client: user is new doc 2019-11-22 at 14:01:35.300 EST
-Command at client: user is change doc user 2 0 1 h 2019-11-22 at 14:01:36.522 EST
-Command at client: user is change doc user 3 1 1 he 2019-11-22 at 14:01:36.639 EST
-Command at client: user is change doc user 4 2 1 hel 2019-11-22 at 14:01:36.778 EST
-Command at client: user is change doc user 5 3 1 hell 2019-11-22 at 14:01:36.920 EST
-Command at client: user is change doc user 6 4 1 hello 2019-11-22 at 14:01:37.077 EST

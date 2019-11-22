@@ -62,11 +62,10 @@ public class Client {
 	public void sendCommandToServer(String message) {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss.SSS z");
 		NTPUDPClient timeClient = new NTPUDPClient();
-		InetAddress inetAddress;
+		InetAddress inetAddress = null;
 		TimeInfo timeInfo = null;
 		try {
 			inetAddress = InetAddress.getByName(TIME_SERVER);
-			timeInfo = timeClient.getTime(inetAddress);
 			
 		} catch (UnknownHostException e1) {
 			e1.printStackTrace();
@@ -77,6 +76,7 @@ public class Client {
 		long returnTime;
 
 		try {
+			timeInfo = timeClient.getTime(inetAddress);
 			returnTime = timeInfo.getReturnTime();
 			time = new Date(returnTime);
 			
