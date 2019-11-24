@@ -1,40 +1,40 @@
 Server created. Listening on port 9997
-Command at Server: name user1 2019-11-22 at 06:09:21.702 GMT
-Command at Server: name user2 2019-11-22 at 06:09:57.039 GMT
-Command at Server: new doc 2019-11-22 at 06:10:07.117 GMT
-Command at Server: look 2019-11-22 at 06:10:08.713 GMT
-Command at Server: open doc 2019-11-22 at 06:10:10.639 GMT
-Command at Server: change doc user1 1 insert h 0 2019-11-22 at 06:10:14.418 GMT
-Command at Server: change doc user1 2 insert e 1 2019-11-22 at 06:10:14.808 GMT
-Command at Server: change doc user1 3 insert l 2 2019-11-22 at 06:10:15.366 GMT
-Command at Server: change doc user1 4 insert l 3 2019-11-22 at 06:10:15.553 GMT
-Command at Server: change doc user1 5 insert o 4 2019-11-22 at 06:10:16.064 GMT
-Command at Server: change doc user1 6 insert + 5 2019-11-22 at 06:10:17.458 GMT
-Command at Server: change doc user1 7 insert w 6 2019-11-22 at 06:10:18.754 GMT
-Command at Server: change doc user1 8 insert o 7 2019-11-22 at 06:10:19.217 GMT
-Command at Server: change doc user1 9 insert r 8 2019-11-22 at 06:10:19.545 GMT
-Command at Server: change doc user1 10 insert l 9 2019-11-22 at 06:10:19.920 GMT
-Command at Server: change doc user1 11 insert d 10 2019-11-22 at 06:10:20.544 GMT
-Command at Server: change doc user1 12 remove 10 11 2019-11-22 at 06:10:22.785 GMT
-Command at Server: change doc user1 13 remove 9 10 2019-11-22 at 06:10:23.045 GMT
-Command at Server: change doc user1 14 remove 8 9 2019-11-22 at 06:10:23.295 GMT
-Command at Server: change doc user1 15 remove 7 8 2019-11-22 at 06:10:23.560 GMT
-Command at Server: change doc user1 16 remove 6 7 2019-11-22 at 06:10:23.982 GMT
-Command at Server: change doc user2 17 insert h 6 2019-11-22 at 06:10:29.401 GMT
-Command at Server: change doc user2 18 insert e 7 2019-11-22 at 06:10:29.756 GMT
-Command at Server: change doc user2 19 insert l 8 2019-11-22 at 06:10:30.068 GMT
-Command at Server: change doc user2 20 insert l 9 2019-11-22 at 06:10:30.193 GMT
-Command at Server: change doc user2 21 insert o 10 2019-11-22 at 06:10:30.506 GMT
-Command at Server: change doc user2 22 insert + 11 2019-11-22 at 06:10:30.946 GMT
-Command at Server: change doc user2 23 insert w 12 2019-11-22 at 06:10:31.227 GMT
-Command at Server: change doc user2 24 insert o 13 2019-11-22 at 06:10:31.493 GMT
-Command at Server: change doc user2 25 insert r 14 2019-11-22 at 06:10:31.838 GMT
-Command at Server: change doc user2 26 insert l 15 2019-11-22 at 06:10:32.234 GMT
-Command at Server: change doc user2 27 insert d 16 2019-11-22 at 06:10:32.671 GMT
-Command at Server: change doc user2 28 remove 16 17 2019-11-22 at 06:10:33.884 GMT
-Command at Server: change doc user2 29 remove 15 16 2019-11-22 at 06:10:34.161 GMT
-Command at Server: change doc user2 30 remove 14 15 2019-11-22 at 06:10:34.411 GMT
-Command at Server: change doc user2 31 remove 13 14 2019-11-22 at 06:10:34.739 GMT
-Command at Server: change doc user2 32 remove 12 13 2019-11-22 at 06:10:35.181 GMT
-Command at Server: bye 2019-11-22 at 06:10:38.953 GMT
-Command at Server: bye 2019-11-22 at 06:10:41.064 GMT
+Command at Server: name user1 2019-11-22 at 18:12:26.878 EST
+Command at Server: new doc 2019-11-22 at 18:12:29.595 EST
+Command at Server: name user2 2019-11-22 at 18:12:33.623 EST
+Command at Server: look 2019-11-22 at 18:12:35.712 EST
+Command at Server: open doc 2019-11-22 at 18:12:37.290 EST
+Command at Server: change doc user1 1 insert h 0 2019-11-22 at 18:12:39.426 EST
+Command at Server: change doc user1 2 insert e 1 2019-11-22 at 18:12:39.948 EST
+Command at Server: change doc user1 3 insert l 2 2019-11-22 at 18:12:40.562 EST
+Command at Server: change doc user1 4 insert l 3 2019-11-22 at 18:12:41.087 EST
+Command at Server: change doc user1 5 insert o 4 2019-11-22 at 18:12:41.535 EST
+Command at Server: change doc user1 6 insert + 5 2019-11-22 at 18:12:42.026 EST
+Command at Server: change doc user1 7 insert w 6 2019-11-22 at 18:12:42.561 EST
+Command at Server: change doc user1 8 insert o 7 2019-11-22 at 18:12:42.989 EST
+Command at Server: change doc user1 9 insert r 8 2019-11-22 at 18:12:43.584 EST
+Command at Server: change doc user1 10 insert l 9 2019-11-22 at 18:12:44.036 EST
+Command at Server: change doc user1 11 insert d 10 2019-11-22 at 18:12:44.767 EST
+Command at Server: change doc user1 12 remove 10 11 2019-11-22 at 18:12:45.556 EST
+Command at Server: change doc user1 13 remove 9 10 2019-11-22 at 18:12:45.995 EST
+Command at Server: change doc user1 14 remove 8 9 2019-11-22 at 18:12:46.481 EST
+Command at Server: change doc user1 15 remove 7 8 2019-11-22 at 18:12:47.222 EST
+Command at Server: change doc user1 16 remove 6 7 2019-11-22 at 18:12:47.941 EST
+Command at Server: change doc user2 17 insert h 6 2019-11-22 at 18:12:50.796 EST
+Command at Server: change doc user2 18 insert e 7 2019-11-22 at 18:12:51.365 EST
+Command at Server: change doc user2 19 insert l 8 2019-11-22 at 18:12:52.299 EST
+Command at Server: change doc user2 20 insert l 9 2019-11-22 at 18:12:52.974 EST
+Command at Server: change doc user2 21 insert o 10 2019-11-22 at 18:12:54.010 EST
+Command at Server: change doc user2 22 insert + 11 2019-11-22 at 18:12:54.418 EST
+Command at Server: change doc user2 23 insert w 12 2019-11-22 at 18:12:55.262 EST
+Command at Server: change doc user2 24 insert o 13 2019-11-22 at 18:12:55.834 EST
+Command at Server: change doc user2 25 insert r 14 2019-11-22 at 18:12:56.288 EST
+Command at Server: change doc user2 26 insert l 15 2019-11-22 at 18:12:56.780 EST
+Command at Server: change doc user2 27 insert d 16 2019-11-22 at 18:12:57.217 EST
+Command at Server: change doc user2 28 remove 16 17 2019-11-22 at 18:12:58.565 EST
+Command at Server: change doc user2 29 remove 15 16 2019-11-22 at 18:12:59.368 EST
+Command at Server: change doc user2 30 remove 14 15 2019-11-22 at 18:13:00.007 EST
+Command at Server: change doc user2 31 remove 13 14 2019-11-22 at 18:13:00.717 EST
+Command at Server: change doc user2 32 remove 12 13 2019-11-22 at 18:13:01.431 EST
+Command at Server: bye 2019-11-22 at 18:13:05.438 EST
+Command at Server: bye 2019-11-22 at 18:13:08.585 EST

@@ -52,9 +52,9 @@ public class ClientViewHandler {
 		this.client = client;
 		this.socket = socket;
 		try {
-			writer = new BufferedWriter(new FileWriter("C:\\lanEvaluation_client.txt"));
-//			writer = new BufferedWriter(new FileWriter(
-//					"D:\\\\Project\\\\DS_PROJECT\\\\collaborative_editor\\\\evaluation\\\\lanEvaluation_client.txt"));
+//			writer = new BufferedWriter(new FileWriter("C:\\lanEvaluation_client.txt"));
+			writer = new BufferedWriter(new FileWriter(
+					"D:\\\\Project\\\\DS_PROJECT\\\\collaborative_editor\\\\evaluation\\\\lanEvaluation_client.txt"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

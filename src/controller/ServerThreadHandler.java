@@ -47,10 +47,10 @@ public class ServerThreadHandler extends Thread {
 		this.server = server;
 		this.alive = true;
 		try {
+			//writer = new BufferedWriter(new FileWriter(
+			//		"C:\\lanEvaluation_server.txt"));
 			writer = new BufferedWriter(new FileWriter(
-					"C:\\lanEvaluation_server.txt"));
-//			writer = new BufferedWriter(new FileWriter(
-//					"D:\\\\Project\\\\DS_PROJECT\\\\collaborative_editor\\\\evaluation\\\\lanEvaluation_server.txt"));
+					"D:\\\\Project\\\\DS_PROJECT\\\\collaborative_editor\\\\evaluation\\\\lanEvaluation_server.txt"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

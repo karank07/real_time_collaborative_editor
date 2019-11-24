@@ -1,0 +1,20 @@
+Sending command to server from client: null name user3 at 2019-11-22 at 18:31:36.487 EST
+Sending command to server from client: user3 look at 2019-11-22 at 18:31:44.188 EST
+Sending command to server from client: user3 open doc at 2019-11-22 at 18:31:55.433 EST
+Sending command to server from client: user3 change doc user3 33 insert h 12 at 2019-11-22 at 18:33:43.338 EST
+Sending command to server from client: user3 change doc user3 34 insert e 13 at 2019-11-22 at 18:33:43.546 EST
+Sending command to server from client: user3 change doc user3 35 insert l 14 at 2019-11-22 at 18:33:43.860 EST
+Sending command to server from client: user3 change doc user3 36 insert l 15 at 2019-11-22 at 18:33:44.058 EST
+Sending command to server from client: user3 change doc user3 37 insert o 16 at 2019-11-22 at 18:33:44.350 EST
+Sending command to server from client: user3 change doc user3 38 insert + 17 at 2019-11-22 at 18:33:44.611 EST
+Sending command to server from client: user3 change doc user3 39 insert w 18 at 2019-11-22 at 18:33:44.925 EST
+Sending command to server from client: user3 change doc user3 40 insert o 19 at 2019-11-22 at 18:33:45.182 EST
+Sending command to server from client: user3 change doc user3 41 insert r 20 at 2019-11-22 at 18:33:45.488 EST
+Sending command to server from client: user3 change doc user3 42 insert l 21 at 2019-11-22 at 18:33:45.804 EST
+Sending command to server from client: user3 change doc user3 43 insert d 22 at 2019-11-22 at 18:33:46.206 EST
+Sending command to server from client: user3 change doc user3 44 remove 22 23 at 2019-11-22 at 18:33:46.941 EST
+Sending command to server from client: user3 change doc user3 45 remove 21 22 at 2019-11-22 at 18:33:47.734 EST
+Sending command to server from client: user3 change doc user3 46 remove 20 21 at 2019-11-22 at 18:33:48.665 EST
+Sending command to server from client: user3 change doc user3 47 remove 19 20 at 2019-11-22 at 18:33:49.488 EST
+Sending command to server from client: user3 change doc user3 48 remove 18 19 at 2019-11-22 at 18:33:50.293 EST
+Sending command to server from client: user3 bye at 2019-11-22 at 18:34:04.769 EST

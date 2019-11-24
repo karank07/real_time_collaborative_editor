@@ -1,0 +1,19 @@
+Sending command to server from client: null name user1 at 2019-11-22 at 18:31:35.411 GMT-05:00
+Sending command to server from client: user1 new doc at 2019-11-22 at 18:31:39.404 GMT-05:00
+Sending command to server from client: user1 change doc user1 1 insert h 0 at 2019-11-22 at 18:33:22.437 GMT-05:00
+Sending command to server from client: user1 change doc user1 2 insert e 1 at 2019-11-22 at 18:33:22.828 GMT-05:00
+Sending command to server from client: user1 change doc user1 3 insert l 2 at 2019-11-22 at 18:33:23.193 GMT-05:00
+Sending command to server from client: user1 change doc user1 4 insert l 3 at 2019-11-22 at 18:33:23.427 GMT-05:00
+Sending command to server from client: user1 change doc user1 5 insert o 4 at 2019-11-22 at 18:33:23.685 GMT-05:00
+Sending command to server from client: user1 change doc user1 6 insert + 5 at 2019-11-22 at 18:33:24.052 GMT-05:00
+Sending command to server from client: user1 change doc user1 7 insert w 6 at 2019-11-22 at 18:33:24.394 GMT-05:00
+Sending command to server from client: user1 change doc user1 8 insert o 7 at 2019-11-22 at 18:33:24.939 GMT-05:00
+Sending command to server from client: user1 change doc user1 9 insert r 8 at 2019-11-22 at 18:33:25.280 GMT-05:00
+Sending command to server from client: user1 change doc user1 10 insert l 9 at 2019-11-22 at 18:33:25.521 GMT-05:00
+Sending command to server from client: user1 change doc user1 11 insert d 10 at 2019-11-22 at 18:33:26.188 GMT-05:00
+Sending command to server from client: user1 change doc user1 12 remove 10 11 at 2019-11-22 at 18:33:27.014 GMT-05:00
+Sending command to server from client: user1 change doc user1 13 remove 9 10 at 2019-11-22 at 18:33:27.969 GMT-05:00
+Sending command to server from client: user1 change doc user1 14 remove 8 9 at 2019-11-22 at 18:33:28.771 GMT-05:00
+Sending command to server from client: user1 change doc user1 15 remove 7 8 at 2019-11-22 at 18:33:29.564 GMT-05:00
+Sending command to server from client: user1 change doc user1 16 remove 6 7 at 2019-11-22 at 18:33:30.480 GMT-05:00
+Sending command to server from client: user1 bye at 2019-11-22 at 18:34:11.252 GMT-05:00
